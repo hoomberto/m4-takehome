@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {getStoriesByType} from '../../utilities/apiCalls.js'
-
+import Article from '../Article/Article'
+import './TopArticles.css'
 
 const TopArticles = () => {
   const [topArticlesData, setTopArticlesData] = useState('')
@@ -11,13 +12,17 @@ const TopArticles = () => {
   }, [])
 
   const renderArticles = () => {
-    if (topArticlesData) return topArticlesData.map(article => {
-      return <p>{article.title}</p>
+    if (topArticlesData) return topArticlesData.map((article, index) => {
+      return <Article
+              key={index}
+              title={article.title}
+              abstract={article.abstract}
+              media={article.multimedia[0]} />
     })
   }
 
   return (
-    <section>
+    <section className="articles-container">
       {!!topArticlesData && renderArticles()}
     </section>
   )
