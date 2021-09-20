@@ -1,3 +1,24 @@
+/* article .img-container {
+  padding-top: 0.6666%;
+  height: 0;
+} */
+/* .img-abstract-container {
+  display: flex;
+  justify-content: center;
+  vertical-align: center;
+}
+
+.img-container {
+  padding-bottom: 0;
+  height: auto;
+
+}
+
+.img-abstract-container p {
+  width: 33%;
+  padding: 5%;
+  margin: 0;
+} */
 
 .img-abstract-container {
   display: grid;
@@ -46,4 +67,28 @@ height: 67%;
 article h3 {
   text-align: center;
   margin: 0;
+}
+
+
+@media screen and (max-width: 620px) {
+  .img-abstract-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-container {
+    padding-bottom: 0;
+    height: auto;
+  }
+
+  .img-abstract-container p {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  article img {
+    position: relative;
+  }
 }
