@@ -1,33 +1,36 @@
 import './ArticleOptions.css'
 
-const ArticleOptions = ({ setOption }) => {
+const ArticleOptions = ({ setCategory }) => {
+
+
+  const update = (event) => {
+  event.preventDefault();
+  if (!event.target.value) return
+  setCategory(event.target.value)
+}
 
   const options = () => {
     return [
-      "arts",
-      "automobiles",
-      "books",
-      "business",
-      "fashion",
-      "food",
-      "health",
-      "home",
-      "movies",
-      "opinion",
-      "politics",
-      "realestate",
-      "science",
-      "sports",
-      "technology",
-      "travel",
-      "upshot",
-      "us",
-      "world"
-    ].map(category => <option key={category}>{category}</option>)
+      "Arts",
+      "Automobiles",
+      "Business",
+      "Food",
+      "Health",
+      "Home",
+      "Movies",
+      "Opinion",
+      "Politics",
+      "Science",
+      "Sports",
+      "Technology",
+      "Travel",
+      "World"
+    ].map(category => <option key={category} value={category}>{category}</option>)
   }
 
   return (
-    <select>
+    <select onChange={update}>
+      <option>Select a category</option>
       {options()}
     </select>
   )
