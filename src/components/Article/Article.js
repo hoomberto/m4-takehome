@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Article.css'
 import { formatLink } from '../../utilities/utils.js'
 
-const Article = ({title, abstract, media, setArticle, uri, byline}) => {
+const Article = ({title, abstract, media, setArticle, byline}) => {
 
   const setCurrentArticle = () => {
     setArticle({
