@@ -1,8 +1,7 @@
 import './ArticleOptions.css'
+import { categories } from '../../utilities/utils'
 
 const ArticleOptions = ({ setCategory }) => {
-
-
   const update = (event) => {
   event.preventDefault();
   if (!event.target.value) return
@@ -10,27 +9,12 @@ const ArticleOptions = ({ setCategory }) => {
 }
 
   const options = () => {
-    return [
-      "Arts",
-      "Automobiles",
-      "Business",
-      "Food",
-      "Health",
-      "Home",
-      "Movies",
-      "Opinion",
-      "Politics",
-      "Science",
-      "Sports",
-      "Technology",
-      "Travel",
-      "World"
-    ].map(category => <option key={category} value={category}>{category}</option>)
+    return categories.map(category => <option key={category} value={category}>{category}</option>)
   }
 
   return (
     <select onChange={update}>
-      <option>Select a category</option>
+      <option value="">Select a category</option>
       {options()}
     </select>
   )
