@@ -1,50 +1,79 @@
 import React, {useState, useEffect} from 'react'
 import {getStoriesByType} from '../../utilities/apiCalls.js'
+import {categories} from '../../utilities/utils'
 import Article from '../Article/Article'
 import ArticleOptions from '../ArticleOptions/ArticleOptions'
 import ErrComp from '../ErrComp/ErrComp'
+import Search from '../Search/Search'
+// import { useParams } from 'react-router-dom'
 import './TopArticles.css'
 
-const TopArticles = ({ setArticle }) => {
+const TopArticles = ({ setArticle, setSection, currentSection }) => {
+  // const { section } = useParams()
   const [topArticlesData, setTopArticlesData] = useState('')
-  const [category, setCategory] = useState('World')
+  const [category, setCategory] = useState('home')
   const [err, setErr] = useState(false)
+  const [query, setQuery] = useState('')
 
   useEffect(async () => {
     try {
-      let categories = await getStoriesByType(category)
-      if (categories === 429) {
-        return setErr(categories)
+      let section = !currentSection ? category : currentSection
+      if (section === 'All') section = 'home'
+      let cats = await getStoriesByType(section)
+      if (cats === 429) {
+        return setErr(cats)
       }
       setErr(false)
-      setTopArticlesData(categories.results.slice(0,11))
+      setTopArticlesData(cats.results)
     }
     catch (error) {
-      console.log(error)
-      setErr(error)
+      setErr(true)
     }
-  }, [category])
+  }, [category, currentSection])
+
+  useEffect(() => {
+    if (err) {
+      setTimeout(() => {
+        currentSection = false;
+      }, 3000)
+    }
+  }, [err])
 
   const renderArticles = () => {
-    if (topArticlesData) return topArticlesData.map((article, index) => {
+    let allData;
+    let search = query.toLowerCase()
+    allData = topArticlesData
+    if (query) allData = allData.filter(article => article.title.toLowerCase().includes(search) || article.section.toLowerCase().includes(search))
+    let results = allData.map((article, index) => {
       return (
         <Article
+          id={index+1}
           key={index}
           title={article.title}
           abstract={article.abstract}
-          media={article.multimedia[0]}
+          media={!!article.multimedia && article.multimedia[0]}
           setArticle={setArticle}
           byline={article.byline}
+          section={currentSection || article.section}
         />
       )
     })
+    if (query && !results.length) return 'No matches for search - please try another.'
+    if (query) return results
+    return results.slice(0,11)
+  }
+
+  const formatCategory = () => {
+    if (category === 'All' || category === 'home') return null
+    return category
   }
 
   return (
     <section className="articles-container">
       <div>
-        <h1>Top {category} Articles</h1>
-        <ArticleOptions setCategory={setCategory} />
+        {(currentSection && !err)? <h1>Top {formatCategory()} Articles</h1> : <h1>Top {!err ? currentSection : null} Articles</h1>}
+        <ArticleOptions setCategory={setCategory} setSection={setSection} currentSection={currentSection} />
+        <Search query={query} setQuery={setQuery} />
       </div>
       {!topArticlesData && !err && <h2>Loading...</h2>}
       {!!topArticlesData && !err && renderArticles()}
