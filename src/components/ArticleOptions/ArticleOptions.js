@@ -1,12 +1,8 @@
 import './ArticleOptions.css'
 import { Redirect } from 'react-router-dom'
-
-
 import { categories } from '../../utilities/utils'
 
 const ArticleOptions = ({ setCategory, setSection, currentSection }) => {
-  // const { section } = useParams()
-
   const update = (event) => {
   event.preventDefault();
   if (!event.target.value) return
