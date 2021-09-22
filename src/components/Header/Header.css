@@ -1,16 +1,12 @@
-h1 {
+header h1 {
   text-align: center;
+  margin: 0;
 }
 
-.b1 {
+header {
+  background: yellow;
+  padding: 1% 0;
   border-bottom: 8px solid navy;
-}
-
-.b2 {
-  border-bottom: 8px solid cornflowerblue;
-}
-
-.b3 {
-  border-bottom: 8px solid cyan;
-  margin-bottom: 1%;
+  color: navy;
+  margin-bottom: 1em;
 }
