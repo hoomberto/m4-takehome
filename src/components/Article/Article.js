@@ -1,6 +1,21 @@
+import DetailedArticle from '../DetailedArticle/DetailedArticle.js'
+import { Link } from 'react-router-dom'
 import './Article.css'
 
-const Article = ({title, abstract, media}) => {
+const Article = ({title, abstract, media, setArticle, uri, byline}) => {
+
+  const articleLink = () => {
+    return title.replace(' ', '-')
+  }
+
+  const setCurrentArticle = () => {
+    setArticle({
+      title,
+      media,
+      abstract,
+      byline
+    })
+  }
 
   return (
     <article>
@@ -9,7 +24,7 @@ const Article = ({title, abstract, media}) => {
         src={media.url}
         alt={title}
       />
-      <button>Read More</button>
+      <Link to={articleLink()} onClick={setCurrentArticle}><button>Read More</button></Link>
     </article>
   )
 }
