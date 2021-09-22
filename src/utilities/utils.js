@@ -15,6 +15,7 @@ export const formatLink = (title) => {
 }
 
 export const categories = [
+  "All",
   "Arts",
   "Automobiles",
   "Business",
