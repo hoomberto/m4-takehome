@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# M4 Takehome
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [View this deployed app in action](https://newsblurbs.vercel.app/)
 
-## Available Scripts
+### Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [In use](#in-use)
+- [Set up](#set-up)
+- [Technologies](#technologies)
+- [Contributors](#contributors)
 
-In the project directory, you can run:
+## Overview
 
-### `yarn start`
+This project was created for the Mod 4 Take Home Challenge. We were given a minimum set of requirements to incorporate into an MVP for this application. The requirements are as follows:
+```
+- A list of articles
+- A “detailed” view for each article (as opposed to summary/list view)
+- Articles in the list must link to the detailed article view you create
+- Some sort of search, filter, OR sort
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- UI that accesses data from [NYT Top Articles API](https://developer.nytimes.com/docs/top-stories-product/1/overview) to provide a condensed news-reading experience for the User
+- On visiting, the site displays the current date and the top articles from across all categories
+- A User can click on an individual article's "Read more" button and get a detailed view of that article, along with a link to the full one
+- Users can choose a news category of their choice and have the application load relevant articles
+- Users can search the current category for articles that contain the User's query
+- Error handling for invalid URLs, too many requests, and server errors
+- Responsive design for use across desktop, tablet, and mobile devices
+- WAVE and Lighthouse audit compliant
+- Cypress testing to cover basic user flows
 
-### `yarn test`
+## In use
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Set Up
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone this repo down, and `cd` into it.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Run `npm install`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run `npm start`
 
-### `yarn eject`
+For testing, run `npm run cypress`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technologies
+<p align="left">
+  <img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="javascript" />
+  <img src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white" alt="html5"/>
+  <img src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
+  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="Github" />
+</p>
+<p align="left">
+  <img src="https://img.shields.io/badge/-React-cyan" alt="React" />
+  <img src="https://img.shields.io/badge/-React%20Router-CA4245?logo=react-router" alt="React Router" />
+  <img src="https://img.shields.io/badge/-Cypress-gray" alt="Cypress" />
+  <img src="https://img.shields.io/badge/-dayJS-yellowgreen" alt="dayJS" />
+</p>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributors
+<table>
+     <tr>
+        <td> Bobby Vasquez <a href="https://github.com/hoomberto">GH</td>
+    </tr>
+    </tr>
+    <td><img src="https://avatars.githubusercontent.com/u/78388491?v=4" alt="Bobby GH img"
+ width="150" height="auto" /></td>
+</table>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
