@@ -13,3 +13,17 @@ export const formatLink = (title) => {
   .replaceAll('’', '')
   .replaceAll('‘', '')
 }
+
+export const categories = [
+  "Arts",
+  "Automobiles",
+  "Business",
+  "Movies",
+  "Opinion",
+  "Politics",
+  "Science",
+  "Sports",
+  "Technology",
+  "Travel",
+  "World"
+]
