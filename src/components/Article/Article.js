@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Article.css'
 import { formatLink } from '../../utilities/utils.js'
 
-const Article = ({title, abstract, media, setArticle, byline}) => {
+const Article = ({id, title, abstract, media, setArticle, byline, section }) => {
 
   const setCurrentArticle = () => {
     setArticle({
@@ -21,7 +21,8 @@ const Article = ({title, abstract, media, setArticle, byline}) => {
         src={media.url}
         alt={title}
       />
-      <Link to={formatLink(title)} onClick={setCurrentArticle}><button>Read More</button></Link>
+      <h4>#{section}</h4>
+      <Link to={`/${!section ? 'top' : section }/${id}`} onClick={setCurrentArticle}><button>Read More</button></Link>
     </article>
   )
 }
