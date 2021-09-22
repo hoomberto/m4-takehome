@@ -6,11 +6,12 @@ import './TopArticles.css'
 
 const TopArticles = () => {
   const [topArticlesData, setTopArticlesData] = useState('')
+  const [category, setCategory] = useState('world')
 
   useEffect(() => {
-    getStoriesByType('world')
+    getStoriesByType(category)
     .then(data => setTopArticlesData(data.results.slice(0,10)))
-  }, [])
+  }, [category])
 
   const renderArticles = () => {
     if (topArticlesData) return topArticlesData.map((article, index) => {
@@ -29,7 +30,8 @@ const TopArticles = () => {
     <section className="articles-container">
       <div>
         <h1>Top Articles</h1>
-        <ArticleOptions />
+        <h2>Current category: {category}</h2>
+        <ArticleOptions setCategory={setCategory} />
       </div>
       {!topArticlesData ? <h2>Loading...</h2> : renderArticles()}
     </section>
