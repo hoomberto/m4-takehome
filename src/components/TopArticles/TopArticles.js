@@ -4,7 +4,7 @@ import Article from '../Article/Article'
 import ArticleOptions from '../ArticleOptions/ArticleOptions'
 import './TopArticles.css'
 
-const TopArticles = () => {
+const TopArticles = ({ setArticle }) => {
   const [topArticlesData, setTopArticlesData] = useState('')
   const [category, setCategory] = useState('World')
 
@@ -21,6 +21,9 @@ const TopArticles = () => {
           title={article.title}
           abstract={article.abstract}
           media={article.multimedia[0]}
+          setArticle={setArticle}
+          uri={article.uri}
+          byline={article.byline}
         />
       )
     })
