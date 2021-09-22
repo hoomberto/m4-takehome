@@ -6,11 +6,11 @@ import './TopArticles.css'
 
 const TopArticles = () => {
   const [topArticlesData, setTopArticlesData] = useState('')
-  const [category, setCategory] = useState('world')
+  const [category, setCategory] = useState('World')
 
   useEffect(() => {
     getStoriesByType(category)
-    .then(data => setTopArticlesData(data.results.slice(0,10)))
+    .then(data => setTopArticlesData(data.results.slice(0,11)))
   }, [category])
 
   const renderArticles = () => {
