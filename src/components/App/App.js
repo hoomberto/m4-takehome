@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState} from 'react'
 // import {getStoriesByType} from '../../utilities/apiCalls.js'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect, useParams } from 'react-router-dom'
 import TopArticles from '../TopArticles/TopArticles.js'
 import Header from '../Header/Header.js'
 import ArticleContext from '../ArticleContext/ArticleContext.js'
@@ -10,6 +10,7 @@ import DetailedArticle from '../DetailedArticle/DetailedArticle.js'
 const App = () => {
 
   const [currentArticle, setArticle] = useState(false)
+  const [currentSection, setSection] = useState(false)
   // useEffect(() => {
   //   getStoriesByType('world')
   //   .then(data => console.log(data))
@@ -21,15 +22,17 @@ const App = () => {
       <ArticleContext.Provider value={currentArticle}>
         <Switch>
           <Route exact path="/">
-            <TopArticles setArticle={setArticle} />
+            <TopArticles setArticle={setArticle} setSection={setSection} currentSection={currentSection} />
           </Route>
-          <Route exact path="/:article" render={({ match }) => {
-              const { article } = match.params
-              return (
-                <div>
-                  {!article ? <Redirect to="/" /> : <DetailedArticle />}
-                </div>
-              )
+          <Route exact path="/:section" render={({ match }) => {
+              const { section } = match.params;
+              return <TopArticles setArticle={setArticle} setSection={setSection} currentSection={!currentSection ? section : currentSection} />
+            }} />
+          <Route exact path="/:section/:article" render={({ match }) => {
+              const { section, article } = match.params;
+              return <div>
+                {!article ? <Redirect to="/" /> : <DetailedArticle id={article}/>}
+              </div>
             }} />
         </Switch>
       </ArticleContext.Provider>
