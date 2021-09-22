@@ -8,19 +8,6 @@ const Article = ({title, abstract, media}) => {
     return formatted
   }
 
-  // return (
-  //   <article>
-  //     <h3>{title}</h3>
-  //     <div className="img-abstract-container">
-  //     <div className="img-container">
-  //       <img
-  //         src={media.url}
-  //       />
-  //     </div>
-  //       <p>{formatAbstract()}</p>
-  //     </div>
-  //   </article>
-  // )
   return (
     <article>
       <h2>{title}</h2>
