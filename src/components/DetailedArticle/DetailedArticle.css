@@ -13,7 +13,20 @@ section div {
 section div button {
   background: none;
   border: 1px solid black;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
+  cursor: pointer;
+  transition: .2s all ease;
+  padding: 2% 5%;
+}
+
+section div button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section div button:hover {
+  background: black;
+  color: white;
 }
 
 section div p {
@@ -21,8 +34,8 @@ section div p {
 }
 
 @media screen and (max-width: 500px) {
-  section div button {
-    order: 3;
+  section div button:nth-of-type(1) {
+    order: 6;
   }
 
   section div img {
