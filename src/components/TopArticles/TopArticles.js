@@ -32,14 +32,6 @@ const TopArticles = ({ setArticle, setSection, currentSection }) => {
     getData()
   }, [category, currentSection])
 
-  // useEffect(() => {
-  //   if (err) {
-  //     setTimeout(() => {
-  //       currentSection = false;
-  //     }, 3000)
-  //   }
-  // }, [err])
-
   const renderArticles = () => {
     let allData;
     let search = query.toLowerCase()
