@@ -1,9 +1,13 @@
 import './Header.css'
+const dayjs = require('dayjs')
+const LocalizedFormat = require('dayjs/plugin/localizedFormat')
+dayjs.extend(LocalizedFormat)
 
 const Header = () => {
   return (
     <header>
-      <h1>NewsReader</h1>
+      <h1>NYT NewsReader</h1>
+      <h2>{dayjs().format('LL')}</h2>
     </header>
   )
 }
