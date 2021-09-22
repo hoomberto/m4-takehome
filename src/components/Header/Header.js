@@ -6,7 +6,7 @@ dayjs.extend(LocalizedFormat)
 const Header = () => {
   return (
     <header>
-      <h1>NYT NewsReader</h1>
+      <h1>NYT NewsBlurbs</h1>
       <h2>{dayjs().format('LL')}</h2>
     </header>
   )
