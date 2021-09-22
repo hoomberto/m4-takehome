@@ -1,0 +1,7 @@
+.searchbar-container input {
+  margin-top: 5%;
+  width: 200px;
+  text-indent: 5%;
+  border: 0;
+  border-bottom: 1px solid black;
+}
