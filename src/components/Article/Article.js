@@ -28,7 +28,7 @@ const Article = ({title, abstract, media}) => {
         src={media.url}
         alt={title}
       />
-      <button>Learn More</button>
+      <button>Read More</button>
     </article>
   )
 }

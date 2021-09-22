@@ -27,12 +27,14 @@ article {
 
 article h2 {
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   z-index: 2;
   margin: 0;
   background: rgba(0,0,0,0.55);
   color: white;
-  padding-right: 50%;
+  padding: 5% 50% 5% 5%;
+  /* padding-right: 50%;
+  padding-top: 5%; */
 }
 
 article button {
@@ -40,85 +42,30 @@ article button {
   bottom: 0;
   right: 0;
   z-index: 3;
-  transform: translate(0, -20%);
+  transform: translate(-10%, -30%);
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 4px 8px;
 }
 
 article img {
   position: relative;
   z-index: 0;
-}
-
-
-
-.img-abstract-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  width: 80%;
-  max-width: 600px;
-  margin: 0 auto;
-  /* flex-direction: column;
-  align-items: center; */
-}
-
-
-.img-container, .img-abstract-container p {
-  grid-row: 1 / 2;
-  align-self: center;
-}
-
-.img-container {
-  padding-bottom: 0;
+  width: 100%;
   height: auto;
-  grid-column: 1 / 4;
 }
 
-.img-abstract-container p {
-  padding: 3%;
-  /* width: 100%; */
-  /* text-align: center; */
-  grid-column: 3 / 5;
-  z-index: 1;
-  background: white;
-  border-radius: 2px;
-  box-shadow: 0px 10px 15px -2px rgba(0,0,0,0.15);
-
-}
-
-article img {
-  position: relative;
-/* top: 0;
-left: 0; */
-width: 100%;
-height: 67%;
-  /* height: 267px;
-  width: 400px; */
-}
-
-article h3 {
-  text-align: center;
-  margin: 0;
-}
 
 
 @media screen and (max-width: 620px) {
-  .img-abstract-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  article h2 {
+    font-size: 1.2em;
   }
+}
 
-  .img-container {
-    padding-bottom: 0;
-    height: auto;
-  }
-
-  .img-abstract-container p {
-    padding: 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  article img {
-    position: relative;
+@media screen and (max-width: 420px) {
+  article h2 {
+    font-size: 1em;
   }
 }
