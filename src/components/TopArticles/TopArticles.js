@@ -2,15 +2,27 @@ import React, {useState, useEffect} from 'react'
 import {getStoriesByType} from '../../utilities/apiCalls.js'
 import Article from '../Article/Article'
 import ArticleOptions from '../ArticleOptions/ArticleOptions'
+import ErrComp from '../ErrComp/ErrComp'
 import './TopArticles.css'
 
 const TopArticles = ({ setArticle }) => {
   const [topArticlesData, setTopArticlesData] = useState('')
   const [category, setCategory] = useState('World')
+  const [err, setErr] = useState(false)
 
-  useEffect(() => {
-    getStoriesByType(category)
-    .then(data => setTopArticlesData(data.results.slice(0,11)))
+  useEffect(async () => {
+    try {
+      let categories = await getStoriesByType(category)
+      if (categories === 429) {
+        return setErr(categories)
+      }
+      setErr(false)
+      setTopArticlesData(categories.results.slice(0,11))
+    }
+    catch (error) {
+      console.log(error)
+      setErr(error)
+    }
   }, [category])
 
   const renderArticles = () => {
@@ -22,7 +34,6 @@ const TopArticles = ({ setArticle }) => {
           abstract={article.abstract}
           media={article.multimedia[0]}
           setArticle={setArticle}
-          uri={article.uri}
           byline={article.byline}
         />
       )
@@ -32,11 +43,12 @@ const TopArticles = ({ setArticle }) => {
   return (
     <section className="articles-container">
       <div>
-        <h1>Top Articles</h1>
-        <h2>Current category: {category}</h2>
+        <h1>Top {category} Articles</h1>
         <ArticleOptions setCategory={setCategory} />
       </div>
-      {!topArticlesData ? <h2>Loading...</h2> : renderArticles()}
+      {!topArticlesData && !err && <h2>Loading...</h2>}
+      {!!topArticlesData && !err && renderArticles()}
+      {!!err && <ErrComp err={err} />}
     </section>
   )
 }
