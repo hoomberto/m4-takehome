@@ -4,8 +4,12 @@ dayjs.extend(LocalizedFormat)
 
 describe('Navigation', () => {
   beforeEach(() => {
-    cy.intercept('GET', { fixture: 'articles.json' })
+    cy.intercept('GET', 'https://api.nytimes.com/svc/topstories/v2/', {
+      statusCode: 200,
+      fixture: 'articles.json'
+    })
     cy.visit('http://localhost:3000')
+
   })
 
   it('Should contain the name of the application', () => {
@@ -42,5 +46,4 @@ describe('Navigation', () => {
     cy.wait(2600)
     cy.url().should('eq', 'http://localhost:3000/')
   })
-
 })
