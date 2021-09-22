@@ -1,6 +1,5 @@
 import './App.css';
 import React, {useState} from 'react'
-// import {getStoriesByType} from '../../utilities/apiCalls.js'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import TopArticles from '../TopArticles/TopArticles.js'
 import Header from '../Header/Header.js'
