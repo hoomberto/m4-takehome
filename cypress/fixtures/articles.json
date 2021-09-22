@@ -1,0 +1,43 @@
+{
+  "results": [
+    {
+      "abstract": "test1",
+      "byline": "A robot",
+      "multimedia": [
+        {
+          "url": "https://static01.nyt.com/images/2021/09/18/business/17wealth-1/merlin_194688918_7f91a4fc-25f9-40fe-aa8c-7061682cfb60-superJumbo.jpg"
+        }
+      ],
+      "published_date": "2021-09-17T09:00:08-04:00",
+      "section": "your-money",
+      "short_url": "https://nyti.ms/3u1qsNz",
+      "title": "FIRST TITLE"
+    },
+    {
+      "abstract": "A sizable article",
+      "byline": "A different robot",
+      "multimedia": [
+        {
+          "url": "https://static01.nyt.com/images/2021/09/18/business/17wealth-1/merlin_194688918_7f91a4fc-25f9-40fe-aa8c-7061682cfb60-superJumbo.jpg"
+        }
+      ],
+      "published_date": "2021-09-17T09:00:08-04:00",
+      "section": "art",
+      "short_url": "https://nyti.ms/3u1qsNz",
+      "title": "SECOND TITLE"
+    },
+    {
+      "abstract": "A lengthy article",
+      "byline": "Last robot",
+      "multimedia": [
+        {
+          "url": "https://static01.nyt.com/images/2021/09/18/business/17wealth-1/merlin_194688918_7f91a4fc-25f9-40fe-aa8c-7061682cfb60-superJumbo.jpg"
+        }
+      ],
+      "published_date": "2021-09-17T09:00:08-04:00",
+      "section": "politics",
+      "short_url": "https://nyti.ms/3u1qsNz",
+      "title": "THIRD TITLE"
+    }
+  ]
+}
