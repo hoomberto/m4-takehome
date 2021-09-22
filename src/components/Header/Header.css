@@ -1,0 +1,16 @@
+h1 {
+  text-align: center;
+}
+
+.b1 {
+  border-bottom: 8px solid navy;
+}
+
+.b2 {
+  border-bottom: 8px solid cornflowerblue;
+}
+
+.b3 {
+  border-bottom: 8px solid cyan;
+  margin-bottom: 1%;
+}
