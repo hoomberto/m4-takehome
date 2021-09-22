@@ -3,7 +3,7 @@ import { useHistory, Redirect } from "react-router-dom";
 import ArticleContext from '../ArticleContext/ArticleContext'
 import './DetailedArticle.css'
 
-const DetailedArticle = () => {
+const DetailedArticle = ({ id }) => {
   let history = useHistory();
   const value = useContext(ArticleContext)
 
@@ -15,7 +15,8 @@ const DetailedArticle = () => {
       <h2>{value.title}</h2>
       <h3>{value.byline}</h3>
       <p>{value.abstract}</p>
-      </div>}
+      </div>
+    }
     </section>
   )
 }
