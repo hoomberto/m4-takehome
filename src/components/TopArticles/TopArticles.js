@@ -1,43 +1,44 @@
 import React, {useState, useEffect} from 'react'
 import {getStoriesByType} from '../../utilities/apiCalls.js'
-import {categories} from '../../utilities/utils'
 import Article from '../Article/Article'
 import ArticleOptions from '../ArticleOptions/ArticleOptions'
 import ErrComp from '../ErrComp/ErrComp'
 import Search from '../Search/Search'
-// import { useParams } from 'react-router-dom'
 import './TopArticles.css'
 
 const TopArticles = ({ setArticle, setSection, currentSection }) => {
-  // const { section } = useParams()
   const [topArticlesData, setTopArticlesData] = useState('')
   const [category, setCategory] = useState('home')
   const [err, setErr] = useState(false)
   const [query, setQuery] = useState('')
 
-  useEffect(async () => {
-    try {
-      let section = !currentSection ? category : currentSection
-      if (section === 'All') section = 'home'
-      let cats = await getStoriesByType(section)
-      if (cats === 429) {
-        return setErr(cats)
+  useEffect(() => {
+
+    const getData = async () => {
+      try {
+        let section = !currentSection ? category : currentSection
+        if (section === 'All') section = 'home'
+        let cats = await getStoriesByType(section)
+        if (cats === 429 || cats === 404) {
+          return setErr(cats)
+        }
+        setErr(false)
+        setTopArticlesData(cats.results)
       }
-      setErr(false)
-      setTopArticlesData(cats.results)
+      catch (error) {
+        setErr(true)
+      }
     }
-    catch (error) {
-      setErr(true)
-    }
+    getData()
   }, [category, currentSection])
 
-  useEffect(() => {
-    if (err) {
-      setTimeout(() => {
-        currentSection = false;
-      }, 3000)
-    }
-  }, [err])
+  // useEffect(() => {
+  //   if (err) {
+  //     setTimeout(() => {
+  //       currentSection = false;
+  //     }, 3000)
+  //   }
+  // }, [err])
 
   const renderArticles = () => {
     let allData;
@@ -54,7 +55,9 @@ const TopArticles = ({ setArticle, setSection, currentSection }) => {
           media={!!article.multimedia && article.multimedia[0]}
           setArticle={setArticle}
           byline={article.byline}
-          section={currentSection || article.section}
+          section={article.section}
+          date={article.published_date}
+          url={article.short_url}
         />
       )
     })
