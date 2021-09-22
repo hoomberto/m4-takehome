@@ -1,5 +1,6 @@
 select {
   border-radius: 16px;
+  border: 1px solid salmon;
   width: 200px;
   text-indent: 5%;
 }
