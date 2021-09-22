@@ -1,16 +1,16 @@
-import DetailedArticle from '../DetailedArticle/DetailedArticle.js'
 import { Link } from 'react-router-dom'
 import './Article.css'
-import { formatLink } from '../../utilities/utils.js'
 
-const Article = ({id, title, abstract, media, setArticle, byline, section }) => {
+const Article = ({id, title, abstract, media, setArticle, byline, section, date, url }) => {
 
   const setCurrentArticle = () => {
     setArticle({
       title,
       media,
       abstract,
-      byline
+      byline,
+      date,
+      url
     })
   }
 
@@ -21,7 +21,7 @@ const Article = ({id, title, abstract, media, setArticle, byline, section }) => 
         src={media.url}
         alt={title}
       />
-      <h4>#{section}</h4>
+      <h3>#{section}</h3>
       <Link to={`/${!section ? 'top' : section }/${id}`} onClick={setCurrentArticle}><button>Read More</button></Link>
     </article>
   )
