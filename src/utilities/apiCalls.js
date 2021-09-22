@@ -3,7 +3,7 @@ const checkResponse = (response) => {
     return response.json()
   }
   else {
-    return `Request could not go through.`
+    return response.status
   }
 };
 
