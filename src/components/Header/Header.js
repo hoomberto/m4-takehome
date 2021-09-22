@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header>
       <Link to="/"><h1>NYT NewsBlurbs</h1></Link>
-      <h2>{dayjs().format('LL')}</h2>
+      <h2 className="current-date">{dayjs().format('LL')}</h2>
     </header>
   )
 }
