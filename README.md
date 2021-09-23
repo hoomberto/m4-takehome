@@ -34,6 +34,10 @@ This project was created for the Mod 4 Take Home Challenge. We were given a mini
 
 ## In use
 
+![Detailed Article Demo](https://media.giphy.com/media/tZ3aUFEbGdzkBuiwGO/giphy.gif?cid=790b7611d4e98cf948bc62b92afa32e5c1f9c58c59c3ebf7&rid=giphy.gif&ct=g)<br />
+![Category Selector](https://media.giphy.com/media/sEHygGbwy85Fxn5HSD/giphy.gif?cid=790b7611693948697ba5533c1d616a2f83823ea92ffb89e2&rid=giphy.gif&ct=g)<br />
+![Search Demo](https://media.giphy.com/media/xjb6ERjSKSVq93WQht/giphy.gif?cid=790b7611b58f465ee56acecfb2250b51e74b93b43bcf4a0b&rid=giphy.gif&ct=g)
+
 
 ## Set Up
 
